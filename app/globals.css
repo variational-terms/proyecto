@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@theme {
+  /* Paleta oficial de Variational */
+  --color-background: #010612;
+  --color-surface: #0B0F1A;
+  --color-surface-hover: #111625;
+  --color-foreground: #ffffff;
+  --color-foreground-2: rgba(255, 255, 255, 0.03);
+  --color-foreground-4: rgba(255, 255, 255, 0.08);
+  --color-primary: #4C9AF8;
+  --color-primary-glow: rgba(76, 154, 248, 0.25);
+  --color-accent-purple: #8B5CF6;
+  --color-muted: rgba(255, 255, 255, 0.56);
+  --color-line: rgba(255, 255, 255, 0.08);
+
+  /* Tipografías enlazadas con layout.tsx */
+  --font-heading: var(--font-heading), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono), ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+    background-color: var(--color-background);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-heading {
+    font-family: var(--font-heading);
+    letter-spacing: -0.025em;
+  }
+
+  ::selection {
+    background-color: rgba(76, 154, 248, 0.28);
+    color: #BFE0FE;
+  }
+
+  code, pre {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    word-break: break-word;
+    color: #BFE0FE;
+  }
+}
+
+/* Utilidades personalizadas estilo Variational */
+@layer utilities {
+  .var-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-line);
+    backdrop-filter: blur(160px);
+    transition: border-color 0.3s ease-out, background-color 0.3s ease-out;
+  }
+
+  .var-card:hover {
+    background-color: var(--color-surface-hover);
+    border-color: rgba(255, 255, 255, 0.16);
+  }
+
+  .var-gradient-text {
+    background: linear-gradient(90deg, #8B5CF6 0%, #60A5FA 50%, #4C9AF8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+/* Scrollbar minimalista oscuro */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(76, 154, 248, 0.45);
+}
